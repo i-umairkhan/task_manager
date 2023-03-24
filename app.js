@@ -2,16 +2,14 @@ const express = require("express");
 const app = express();
 const tasks = require("./routes/tasks");
 const connectDB = require("./db/connect");
+const notFound = require("./middleware/notFound");
 require("dotenv").config();
 
 // Middleware
 app.use(express.json());
+app.use(notFound); // middleware for not found error
 
 // Routes
-app.get("/hello", (req, res) => {
-  res.send("hello");
-});
-
 app.use("/api/v1/tasks", tasks); // get all tasks
 
 // server & db connection
