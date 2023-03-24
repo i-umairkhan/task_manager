@@ -35,8 +35,20 @@ const createTask = async (req, res) => {
 };
 
 // controller to update a task
-const updateTask = (req, res) => {
-  res.send("Task updated");
+const updateTask = async (req, res) => {
+  try {
+    const taskId = req.params.id;
+    const task = await Task.findOneAndUpdate({ _id: taskId }, req.body, {
+      new: true,
+      runValidators: true,
+    });
+    if (!task) {
+      return res.status(404).json({ msg: `No task with id ${taskId}` });
+    }
+    res.status(200).json({ task });
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
 
 // controller to delete a task

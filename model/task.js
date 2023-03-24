@@ -8,7 +8,7 @@ const TaskSchema = new mongoose.Schema({
     maxlength: [20, "cannot be move then 20 characters"],
   },
   completed: {
-    tpye: Boolean,
+    type: Boolean,
     default: false,
   },
 });
