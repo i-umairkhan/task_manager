@@ -19,3 +19,5 @@ Body:
 ### UPDATE + DELETE + GET (single)
 
 `api/v1/tasks/:id`
+
+## Must add `MONGO_URI` in .`.env`
