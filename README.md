@@ -1,9 +1,21 @@
 # Task Manager API Documentation
-Node/Express api to manage tasks <br>
-GET `/api/v1/tasks` <br>
-POST `/api/v1/tasks` <br>
-## Data: <br>
-`{
+
+### GET
+
+`/api/v1/tasks` <br>
+
+### POST
+
+`/api/v1/tasks` <br>
+Body:
+
+```
+{
   "name":"your task",
   "completed":false
-}`
+}
+```
+
+### UPDATE + DELETE + GET (single)
+
+`api/v1/tasks/:id`
